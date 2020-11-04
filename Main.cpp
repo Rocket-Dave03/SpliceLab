@@ -9,6 +9,7 @@ const int SCREEN_HEIGHT = 1080 / 2;
 
 
 
+
 void quit(int);
 int exitCode = 0;
 bool running;
@@ -34,16 +35,16 @@ int main(int argc, char* args[])
     SDL_Event event;
     while(running)
     {
-        if (window != nullptr)
+        if ( window->makeCurrent() == 0 )
         {
-            window->makeCurrent();
+            
             glClearColor(0, 1, 1, 1);
             glClear(GL_COLOR_BUFFER_BIT);
             SDL_GL_SwapWindow(window->handle);
         }
-        if (win2 != nullptr)
+        if ( win2->makeCurrent() == 0 )
         {
-            win2->makeCurrent();
+            
             glClearColor(1, 1, 1, 1);
             glClear(GL_COLOR_BUFFER_BIT);
             SDL_GL_SwapWindow(win2->handle);

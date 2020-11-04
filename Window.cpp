@@ -76,10 +76,11 @@ Window::~Window()
 
 /**
  *  \brief Make window the current openGL context
- *  \return 0 on success, 1 on window pointer or openGL context poiter being null
+ *  \return 0 on success, 1 on a pointer being null
  */
 int Window::makeCurrent()
 {
+	if (this == nullptr) { return 1; }
 	if (handle == nullptr || context == NULL) { return 1; }
 	if(SDL_GL_MakeCurrent(handle, context)  < 0)
 	{

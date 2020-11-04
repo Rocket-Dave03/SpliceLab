@@ -11,6 +11,9 @@
     <Filter Include="Source Files\Util">
       <UniqueIdentifier>{0c64821b-8014-4bf4-9b34-da651036ecc7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Util\ArrayLIst">
+      <UniqueIdentifier>{faaf5fd5-d171-4359-809c-81236e56957c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -32,6 +35,9 @@
     </ClInclude>
     <ClInclude Include="Util.h">
       <Filter>Source Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayList.h">
+      <Filter>Source Files\Util\ArrayLIst</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
