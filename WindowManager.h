@@ -4,6 +4,7 @@
 class WindowManager
 {
 public:
-	void newWindow();
+	void newWindow(std::string);
+	void newWindow(const char*);
 };
 
