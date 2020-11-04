@@ -164,13 +164,11 @@ copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Re
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Util.cpp" />
     <ClCompile Include="Window.cpp" />
-    <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="All.h" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="Window.h" />
-    <ClInclude Include="WindowManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
