@@ -14,6 +14,12 @@
     <Filter Include="Source Files\Util\ArrayLIst">
       <UniqueIdentifier>{faaf5fd5-d171-4359-809c-81236e56957c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Gui">
+      <UniqueIdentifier>{0d015e86-f84f-4bdf-b4bb-34cfc73225d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Gui\Buttons">
+      <UniqueIdentifier>{4d49d24e-e5a9-443d-9f3d-5f9f8d972a85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -24,6 +30,9 @@
     </ClCompile>
     <ClCompile Include="Util.cpp">
       <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiControl.cpp">
+      <Filter>Source Files\Gui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -38,6 +47,12 @@
     </ClInclude>
     <ClInclude Include="ArrayList.h">
       <Filter>Source Files\Util\ArrayLIst</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiControl.h">
+      <Filter>Source Files\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="Gui.h">
+      <Filter>Source Files\Gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

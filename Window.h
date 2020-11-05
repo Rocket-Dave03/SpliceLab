@@ -2,9 +2,12 @@
 #include <SDL.h>
 #include "ALL.h"
 #include "Util.h"
+#include "Gui.h"
 
 class Window
 {
+protected:
+    ArrayList<GuiControl> guiControls;
 public:
     
 
@@ -14,7 +17,7 @@ public:
     ~Window();
 
     int makeCurrent();
-    int setPos(int, int);
+    void setPos(int, int);
 
 
 

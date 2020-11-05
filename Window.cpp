@@ -97,4 +97,9 @@ int Window::makeCurrent()
 	}
 	return 0;
 }
+void Window::setPos(int x, int y)
+{
+	SDL_SetWindowPosition(handle, x, y);
+}
+
 
