@@ -6,7 +6,7 @@
 
 class Window
 {
-//protected:
+//private:
 //    ArrayList<GuiControl> guiControls;
 public:
     
