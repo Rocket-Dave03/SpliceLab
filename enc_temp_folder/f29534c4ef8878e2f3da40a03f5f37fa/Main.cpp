@@ -21,7 +21,7 @@ int main(int argc, char* args[])
         exit(EXIT_FAILURE);
     }
 
-    //The window we'll be rendering to
+//The window we'll be rendering to
     Window* window = nullptr;
     Window* win2 = nullptr;
     window = new Window("Spilce Lab");
