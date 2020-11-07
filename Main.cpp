@@ -4,6 +4,7 @@
 #include <gl\glew.h>
 #include <SDL_opengl.h>
 
+//Constant Screen Size
 const int SCREEN_WIDTH = 1920 / 2;
 const int SCREEN_HEIGHT = 1080 / 2;
 
@@ -14,18 +15,18 @@ bool running;
 
 int main(int argc, char* args[])
 {
-    printf("Starting SpliceLab\n");
+    printf("Starting Splicelab\n");
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) < 0)
     {
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
         exit(EXIT_FAILURE);
     }
 
-    //The window we'll be rendering to
+    //The Window We'll Be Rendering To
     Window* window = nullptr;
     Window* win2 = nullptr;
-    window = new Window("Spilce Lab");
-    win2 = new Window("Spilce Lab");
+    window = new Window("Spilcelab");
+    win2 = new Window("Spilcelab");
 
     running = true;
     SDL_Event event;
@@ -33,14 +34,12 @@ int main(int argc, char* args[])
     {
         if (window->makeCurrent() == 0)
         {
-
             glClearColor(0, 1, 1, 1);
             glClear(GL_COLOR_BUFFER_BIT);
             SDL_GL_SwapWindow(window->handle);
         }
         if (win2->makeCurrent() == 0)
         {
-
             glClearColor(1, 1, 1, 1);
             glClear(GL_COLOR_BUFFER_BIT);
             SDL_GL_SwapWindow(win2->handle);
@@ -50,7 +49,6 @@ int main(int argc, char* args[])
         {
             switch (event.type)
             {
-
             case SDL_QUIT:
                 delete window;
                 delete win2;
@@ -70,7 +68,6 @@ int main(int argc, char* args[])
                             delete win2;
                             win2 = nullptr;
                             continue;
-
                         }
                     }
                     if (window != nullptr)
@@ -88,9 +85,6 @@ int main(int argc, char* args[])
 
         }
     }
-
-
-
     printf("Closing\n");
     SDL_Quit();
     exit(exitCode);
