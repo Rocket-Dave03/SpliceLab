@@ -122,14 +122,14 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\C++ libraries\glew-2.1.0\lib\Release\x64;C:\C++ libraries\glfw-3.3.2.bin.WIN64\lib-vc2019;C:\C++ libraries\sdl\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;openGL32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\sdl2.2.0.5\build\native\lib\x64\dynamic;$(SolutionDir)packages\glew.1.9.0.1\build\native\lib\v110\x64\Release\dynamic;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;openGL32.lib;glew.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>
       </EntryPointSymbol>
     </Link>
     <PreBuildEvent>
       <Command>copy /Y "$(SolutionDir)SDL2.dll" "$(SolutionDir)$(Platform)\$(Configuration)\SDL2.dll"
-copy /Y "$(SolutionDir)glew32.dll" "$(SolutionDir)$(Platform)\$(Configuration)\glew32.dll"</Command>
+copy /Y "$(SolutionDir)glew32.dll" "$(SolutionDir)$(Platform)\$(Configuration)\glew.dll"</Command>
       <Message>Move Dlls to working directory</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>

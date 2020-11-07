@@ -2,11 +2,9 @@
 #include "Window.h"
 #include <gl\glew.h>
 
-
-#define Default_Width (1920/2)
-#define Default_Height (1080/2)
-
-
+	//Set Window Size
+#define Default_Width (1920)
+#define Default_Height (1007)
 
 Window::Window(const char* name, int x, int y)
 {
@@ -25,7 +23,6 @@ Window::Window(const char* name, int x, int y)
 		exit(EXIT_FAILURE);
 	}
 	Window::makeCurrent();
-	
 }
 Window::Window(const char* name)
 {
@@ -62,7 +59,6 @@ Window::Window()
 		exit(EXIT_FAILURE);
 	}
 	Window::makeCurrent();
-	
 }
 Window::~Window()
 {
@@ -72,8 +68,6 @@ Window::~Window()
 	handle = nullptr;
 	context = nullptr;
 }
-
-
 /**
  *  \brief Make window the current openGL context
  *  \return 0 on success, 1 on a pointer being null
@@ -97,9 +91,8 @@ int Window::makeCurrent()
 	}
 	return 0;
 }
+	//Set Window Position
 void Window::setPos(int x, int y)
 {
 	SDL_SetWindowPosition(handle, x, y);
 }
-
-
