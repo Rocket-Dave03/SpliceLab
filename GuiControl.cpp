@@ -5,7 +5,12 @@
 GuiControl::GuiControl()
 {
 }
-
 GuiControl::~GuiControl()
 {
+}
+
+
+void GuiControl::draw()
+{
+
 }

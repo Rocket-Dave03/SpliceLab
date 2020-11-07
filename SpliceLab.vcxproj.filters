@@ -34,6 +34,9 @@
     <ClCompile Include="GuiControl.cpp">
       <Filter>Source Files\Gui</Filter>
     </ClCompile>
+    <ClCompile Include="GuiButton.cpp">
+      <Filter>Source Files\Gui\Buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -53,6 +56,9 @@
     </ClInclude>
     <ClInclude Include="Gui.h">
       <Filter>Source Files\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiButton.h">
+      <Filter>Source Files\Gui\Buttons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

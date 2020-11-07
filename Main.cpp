@@ -8,7 +8,7 @@ const int SCREEN_WIDTH = 1920 / 2;
 const int SCREEN_HEIGHT = 1080 / 2;
 
 
-
+ArrayList<Window*>* windows;
 
 void quit(int);
 int exitCode = 0;
@@ -23,73 +23,80 @@ int main(int argc, char* args[])
         exit(EXIT_FAILURE);
     }
     
-
+    windows = new ArrayList<Window*>();
 
     //The window we'll be rendering to
-    Window* window = nullptr;
-    Window* win2 = nullptr;
-    window = new Window("Spilce Lab");
-    win2   = new Window("Spilce Lab");
+    windows->append(new Window("Spilce Lab"));
+    windows->append(new Window("Spilce Lab"));
+
 
     running = true;
     SDL_Event event;
     while(running)
     {
-        if ( window->makeCurrent() == 0 )
+
+        for (int i = 0; i < windows->size(); i++)
         {
-            
-            glClearColor(0, 1, 1, 1);
-            glClear(GL_COLOR_BUFFER_BIT);
-            SDL_GL_SwapWindow(window->handle);
+            Window* win = windows->get(i);
+
         }
-        if ( win2->makeCurrent() == 0 )
-        {
-            
-            glClearColor(1, 1, 1, 1);
-            glClear(GL_COLOR_BUFFER_BIT);
-            SDL_GL_SwapWindow(win2->handle);
-        }
-        
+        //Window* win = windows->get(0);
+        //if (win->makeCurrent() == 0 )
+        //{
+        //   
+        //    glClearColor(0, 1, 1, 1);
+        //    glClear(GL_COLOR_BUFFER_BIT);
+        //    SDL_GL_SwapWindow(win->handle);
+        //}
+        //win = windows->get(0);
+        //if ( win->makeCurrent() == 0 )
+        //{
+        //    
+        //    glClearColor(1, 1, 1, 1);
+        //    glClear(GL_COLOR_BUFFER_BIT);
+        //    SDL_GL_SwapWindow(win->handle);
+        //}
+        //
         if (SDL_PollEvent(&event) > 0)
         {
-            switch (event.type)
-            {
-
-            case SDL_QUIT:
-                delete window;
-                delete win2;
-                window = nullptr;
-                win2 = nullptr;
-                quit(EXIT_SUCCESS);
-                break; 
-
-            case SDL_WINDOWEVENT:
-                switch (event.window.event)
-                {
-                case SDL_WINDOWEVENT_CLOSE:
-                    if (win2 != nullptr)
-                    {
-                        if (SDL_GetWindowID(win2->handle) == event.window.windowID)
-                        {
-                            delete win2;
-                            win2 = nullptr;
-                            continue;
-                    
-                        }
-                    }
-                    if (window != nullptr)
-                    {
-                        if (SDL_GetWindowID(window->handle) == event.window.windowID)
-                        {
-                            delete window;
-                            window = nullptr;
-                            continue;
-                    
-                        }
-                    }
-                }
-            }
-
+        //    switch (event.type)
+        //    {
+        //
+        //    case SDL_QUIT:
+        //        delete window;
+        //        delete win2;
+        //        window = nullptr;
+        //        win2 = nullptr;
+        //        quit(EXIT_SUCCESS);
+        //        break; 
+        //
+        //    case SDL_WINDOWEVENT:
+        //        switch (event.window.event)
+        //        {
+        //        case SDL_WINDOWEVENT_CLOSE:
+        //            if (win2 != nullptr)
+        //            {
+        //                if (SDL_GetWindowID(win2->handle) == event.window.windowID)
+        //                {
+        //                    delete win2;
+        //                    win2 = nullptr;
+        //                    continue;
+        //            
+        //                }
+        //            }
+        //            if (window != nullptr)
+        //            {
+        //                if (SDL_GetWindowID(window->handle) == event.window.windowID)
+        //                {
+        //                    delete window;
+        //                    window = nullptr;
+        //                    continue;
+        //            
+        //                }
+        //            }
+        //        }
+        //    }
+        //
         }
     }
     

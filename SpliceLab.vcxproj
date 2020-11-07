@@ -161,6 +161,7 @@ copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Re
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GuiButton.cpp" />
     <ClCompile Include="GuiControl.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Util.cpp" />
@@ -170,6 +171,7 @@ copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Re
     <ClInclude Include="All.h" />
     <ClInclude Include="ArrayList.h" />
     <ClInclude Include="Gui.h" />
+    <ClInclude Include="GuiButton.h" />
     <ClInclude Include="GuiControl.h" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="Window.h" />

@@ -2,12 +2,13 @@
 #include <SDL.h>
 #include "ALL.h"
 #include "Util.h"
-//#include "Gui.h"
+#include "Gui.h"
 
 class Window
 {
-//protected:
-//    ArrayList<GuiControl> guiControls;
+protected:
+    ArrayList<GuiControl*>* guiControls = new ArrayList<GuiControl*>();
+    void (*drawCallback)(void);
 public:
     
 
@@ -18,6 +19,10 @@ public:
 
     int makeCurrent();
     void setPos(int, int);
+    void setDrawFunction(void(*func)(void));
+
+    void draw();
+    void drawGUI();
 
 
 

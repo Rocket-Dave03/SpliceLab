@@ -8,11 +8,12 @@ private:
 	int length;
 
 public:
-	ArrayList();
-	~ArrayList();
+	ArrayList<T>();
+	~ArrayList<T>();
 
 	void append(T);
 	int size();
+	T get(int);
 };
 
 
@@ -24,6 +25,13 @@ template <class T>
 ArrayList<T>::ArrayList()
 {
 	length = 0;
+	list = new T[0];
+}
+template<class T>
+ArrayList<T>::~ArrayList()
+{
+	delete list;
+	list = nullptr;
 }
 
 
@@ -45,10 +53,13 @@ void ArrayList<T>::append(T elem)
 	memcpy(list, tmp, (length + 1) * sizeof(T));
 	length++;
 }
-
 template <class T>
 int ArrayList<T>::size()
 {
 	return length;
 }
-
+template <class T>
+T ArrayList<T>::get(int index)
+{
+	return list[index];
+}

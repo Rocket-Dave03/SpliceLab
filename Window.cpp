@@ -101,5 +101,21 @@ void Window::setPos(int x, int y)
 {
 	SDL_SetWindowPosition(handle, x, y);
 }
+void Window::setDrawFunction(void (*func)(void))
+{
+	drawCallback = func;
+}
+void Window::draw()
+{
+	(this->drawCallback)();
+}
+void Window::drawGUI()
+{
+	for (int i = 0 ; i < this->guiControls->size(); i++)
+	{
+		GuiControl* g = this->guiControls->get(i);
+		g->draw();
+	}
+}
 
 
