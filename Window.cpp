@@ -29,7 +29,7 @@ Window::Window(const char* name, int x, int y)
 }
 Window::Window(const char* name)
 {
-	handle = SDL_CreateWindow(name, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Default_Width, Default_Height, SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI);
+	handle = SDL_CreateWindow(name, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Default_Width, Default_Height, SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE);
 	if (handle == nullptr) {
 		printf("Window Could not be Created");
 		printf(SDL_GetError());
@@ -101,5 +101,3 @@ void Window::setPos(int x, int y)
 {
 	SDL_SetWindowPosition(handle, x, y);
 }
-
-
