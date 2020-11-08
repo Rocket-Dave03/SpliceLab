@@ -101,21 +101,23 @@ void Window::setPos(int x, int y)
 {
 	SDL_SetWindowPosition(handle, x, y);
 }
-void Window::setDrawFunction(void (*func)(void))
-{
-	drawCallback = func;
-}
-void Window::draw()
-{
-	(this->drawCallback)();
-}
 void Window::drawGUI()
 {
+	if (this->makeCurrent() != 0)
+	{
+		printf("REEEEEEEEEE");
+	}
+	float c = 0.16f;
+	glClearColor( c, c, c, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
+
 	for (int i = 0 ; i < this->guiControls->size(); i++)
 	{
 		GuiControl* g = this->guiControls->get(i);
 		g->draw();
 	}
+
+	SDL_GL_SwapWindow(handle);
 }
 
 
