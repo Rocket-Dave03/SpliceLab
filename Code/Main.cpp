@@ -25,8 +25,11 @@ int main(int argc, char* args[])
     
     windows = new ArrayList<Window*>();
 
+
+
     //The window we'll be rendering to
     windows->append(new Window("Spilce Lab"));
+    
 
 
 
@@ -75,32 +78,7 @@ int main(int argc, char* args[])
             {
                 win->drawGUI();
             }
-            
         }
-
-
-        //Window* win = windows->get(0);
-        //if (win->makeCurrent() == 0 )
-        //{
-        //   
-        //    glClearColor(0, 1, 1, 1);
-        //    glClear(GL_COLOR_BUFFER_BIT);
-        //    SDL_GL_SwapWindow(win->handle);
-        //}
-        //win = windows->get(0);
-        //if ( win->makeCurrent() == 0 )
-        //{
-        //    
-        //    glClearColor(1, 1, 1, 1);
-        //    glClear(GL_COLOR_BUFFER_BIT);
-        //    SDL_GL_SwapWindow(win->handle);
-        //}
-        //
-        //if (SDL_PollEvent(&event) > 0)
-        //{
-        //    
-        //
-        //}
     }
     
     

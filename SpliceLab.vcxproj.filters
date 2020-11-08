@@ -20,6 +20,9 @@
     <Filter Include="Source Files\Gui\Buttons">
       <UniqueIdentifier>{4d49d24e-e5a9-443d-9f3d-5f9f8d972a85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resourses">
+      <UniqueIdentifier>{7bb759d8-1b6a-4244-8904-33eba0d644c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -37,13 +40,25 @@
     <ClCompile Include="GuiButton.cpp">
       <Filter>Source Files\Gui\Buttons</Filter>
     </ClCompile>
+    <ClCompile Include="Code\GuiButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\GuiControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
       <Filter>Source Files\Window</Filter>
-    </ClInclude>
-    <ClInclude Include="All.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Util.h">
       <Filter>Source Files\Util</Filter>
@@ -60,8 +75,24 @@
     <ClInclude Include="GuiButton.h">
       <Filter>Source Files\Gui\Buttons</Filter>
     </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\ArrayList.h" />
+    <ClInclude Include="Code\All.h" />
+    <ClInclude Include="Code\Gui.h" />
+    <ClInclude Include="Code\GuiButton.h" />
+    <ClInclude Include="Code\GuiControl.h" />
+    <ClInclude Include="Code\stb_image.h" />
+    <ClInclude Include="Code\Util.h" />
+    <ClInclude Include="Code\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Image.png">
+      <Filter>Resourses</Filter>
+    </Image>
   </ItemGroup>
 </Project>

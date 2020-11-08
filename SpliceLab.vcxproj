@@ -161,6 +161,11 @@ copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Re
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Code\GuiButton.cpp" />
+    <ClCompile Include="Code\GuiControl.cpp" />
+    <ClCompile Include="Code\Main.cpp" />
+    <ClCompile Include="Code\Util.cpp" />
+    <ClCompile Include="Code\Window.cpp" />
     <ClCompile Include="GuiButton.cpp" />
     <ClCompile Include="GuiControl.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -168,16 +173,27 @@ copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Re
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="All.h" />
     <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="Code\All.h" />
+    <ClInclude Include="Code\ArrayList.h" />
+    <ClInclude Include="Code\Gui.h" />
+    <ClInclude Include="Code\GuiButton.h" />
+    <ClInclude Include="Code\GuiControl.h" />
+    <ClInclude Include="Code\stb_image.h" />
+    <ClInclude Include="Code\Util.h" />
+    <ClInclude Include="Code\Window.h" />
     <ClInclude Include="Gui.h" />
     <ClInclude Include="GuiButton.h" />
     <ClInclude Include="GuiControl.h" />
+    <ClInclude Include="stb_image.h" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Image.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
