@@ -11,6 +11,7 @@ const int SCREEN_HEIGHT = 1080 / 2;
 ArrayList<Window*>* windows;
 
 void quit(int);
+void handleEvents();
 int exitCode = 0;
 bool running;
 
@@ -31,45 +32,22 @@ int main(int argc, char* args[])
 
 
     running = true;
-    SDL_Event event;
     while(running)
     {
-
-        for (int i = 0; i < windows->size(); i++)
-        {
-            Window* win = windows->get(i);
-
-        }
-        //Window* win = windows->get(0);
-        //if (win->makeCurrent() == 0 )
+        //SDL_Event event;
+        //while (SDL_PollEvent(&event) > 0)
         //{
-        //   
-        //    glClearColor(0, 1, 1, 1);
-        //    glClear(GL_COLOR_BUFFER_BIT);
-        //    SDL_GL_SwapWindow(win->handle);
-        //}
-        //win = windows->get(0);
-        //if ( win->makeCurrent() == 0 )
-        //{
-        //    
-        //    glClearColor(1, 1, 1, 1);
-        //    glClear(GL_COLOR_BUFFER_BIT);
-        //    SDL_GL_SwapWindow(win->handle);
-        //}
-        //
-        if (SDL_PollEvent(&event) > 0)
-        {
         //    switch (event.type)
         //    {
-        //
+        //    
         //    case SDL_QUIT:
-        //        delete window;
-        //        delete win2;
-        //        window = nullptr;
-        //        win2 = nullptr;
+        //        for (int i = 0; i < windows->size(); i++)
+        //        {
+        //            delete 
+        //        }
         //        quit(EXIT_SUCCESS);
         //        break; 
-        //
+        //    
         //    case SDL_WINDOWEVENT:
         //        switch (event.window.event)
         //        {
@@ -96,8 +74,35 @@ int main(int argc, char* args[])
         //            }
         //        }
         //    }
-        //
+        //}
+        for (int i = 0; i < windows->size(); i++)
+        {
+            Window* win = windows->get(i);
+
+
         }
+        //Window* win = windows->get(0);
+        //if (win->makeCurrent() == 0 )
+        //{
+        //   
+        //    glClearColor(0, 1, 1, 1);
+        //    glClear(GL_COLOR_BUFFER_BIT);
+        //    SDL_GL_SwapWindow(win->handle);
+        //}
+        //win = windows->get(0);
+        //if ( win->makeCurrent() == 0 )
+        //{
+        //    
+        //    glClearColor(1, 1, 1, 1);
+        //    glClear(GL_COLOR_BUFFER_BIT);
+        //    SDL_GL_SwapWindow(win->handle);
+        //}
+        //
+        //if (SDL_PollEvent(&event) > 0)
+        //{
+        //    
+        //
+        //}
     }
     
     
