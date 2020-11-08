@@ -8,6 +8,8 @@ class Window
 {
 protected:
     ArrayList<GuiControl*>* guiControls = new ArrayList<GuiControl*>();
+private:
+    static SDL_Surface* icon;
 public:
     
 
@@ -20,6 +22,7 @@ public:
     void setPos(int, int);
 
     void drawGUI();
+    void setProgramIcon();
 
 
 

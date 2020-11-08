@@ -24,44 +24,15 @@ Window::Window(const char* name, int x, int y)
 		exit(EXIT_FAILURE);
 	}
 	Window::makeCurrent();
+
+	printf("%p\n", this->icon);
 	
 }
-Window::Window(const char* name)
+Window::Window(const char* name) : Window::Window(name,SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED)
 {
-	handle = SDL_CreateWindow(name, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Default_Width, Default_Height, SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI);
-	if (handle == nullptr) {
-		printf("Window Could not be Created");
-		printf(SDL_GetError());
-		SDL_ClearError();
-		exit(EXIT_FAILURE);
-	}
-	context = SDL_GL_CreateContext(handle);
-	if (context == NULL) {
-		printf("Window Could not be Created");
-		printf(SDL_GetError());
-		SDL_ClearError();
-		exit(EXIT_FAILURE);
-	}
-	Window::makeCurrent();
 }
-Window::Window()
+Window::Window() : Window::Window("Unnamed Window")
 {
-	handle = SDL_CreateWindow("Unnamed Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Default_Width, Default_Height, SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI);
-	if(handle == nullptr){
-		printf("Window Could not be Created");
-		printf(SDL_GetError());
-		SDL_ClearError();
-		exit(EXIT_FAILURE);
-	}
-	context = SDL_GL_CreateContext(handle);
-	if (context == NULL) {
-		printf("Window Could not be Created");
-		printf(SDL_GetError());
-		SDL_ClearError();
-		exit(EXIT_FAILURE);
-	}
-	Window::makeCurrent();
-	
 }
 Window::~Window()
 {
