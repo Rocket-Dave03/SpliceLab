@@ -25,74 +25,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files\Window</Filter>
-    </ClCompile>
-    <ClCompile Include="Util.cpp">
-      <Filter>Source Files\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="GuiControl.cpp">
-      <Filter>Source Files\Gui</Filter>
-    </ClCompile>
-    <ClCompile Include="GuiButton.cpp">
-      <Filter>Source Files\Gui\Buttons</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\GuiButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\GuiControl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Util.cpp">
+    <ClCompile Include="Code\Gui\GuiControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Window.cpp">
+    <ClCompile Include="Code\Gui\Buttons\GuiButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Util\Util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Windows\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
-      <Filter>Source Files\Window</Filter>
-    </ClInclude>
-    <ClInclude Include="Util.h">
-      <Filter>Source Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="ArrayList.h">
-      <Filter>Source Files\Util\ArrayLIst</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiControl.h">
-      <Filter>Source Files\Gui</Filter>
-    </ClInclude>
-    <ClInclude Include="Gui.h">
-      <Filter>Source Files\Gui</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiButton.h">
-      <Filter>Source Files\Gui\Buttons</Filter>
-    </ClInclude>
-    <ClInclude Include="stb_image.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\ArrayList.h" />
     <ClInclude Include="Code\All.h" />
-    <ClInclude Include="Code\Gui.h" />
-    <ClInclude Include="Code\GuiButton.h" />
-    <ClInclude Include="Code\GuiControl.h" />
-    <ClInclude Include="Code\stb_image.h" />
-    <ClInclude Include="Code\Util.h" />
-    <ClInclude Include="Code\Window.h" />
+    <ClInclude Include="Code\Gui\Gui.h" />
+    <ClInclude Include="Code\Gui\GuiControl.h" />
+    <ClInclude Include="Code\Gui\Buttons\GuiButton.h" />
+    <ClInclude Include="Code\Util\stb_image.h" />
+    <ClInclude Include="Code\Util\ArrayList.h" />
+    <ClInclude Include="Code\Util\Util.h" />
+    <ClInclude Include="Code\Windows\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Image.png">
-      <Filter>Resourses</Filter>
-    </Image>
   </ItemGroup>
 </Project>
