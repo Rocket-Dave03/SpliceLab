@@ -1,4 +1,3 @@
-#include "All.h"
 #include "Window.h"
 #include <gl\glew.h>
 

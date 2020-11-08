@@ -1,5 +1,5 @@
 #include "ALL.h"
-#include "Window.h"
+#include "Windows/Window.h"
 #include <SDL.h>
 #include <gl\glew.h>
 #include <SDL_opengl.h>

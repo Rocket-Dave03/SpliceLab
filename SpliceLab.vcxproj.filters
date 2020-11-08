@@ -54,4 +54,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Image.png" />
+  </ItemGroup>
 </Project>

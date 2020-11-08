@@ -1,6 +1,6 @@
 #pragma once
-#include "GuiControl.h"
-#include "All.h"
+#include "../GuiControl.h"
+#include "../../All.h"
 
 
 class GuiButton : public GuiControl

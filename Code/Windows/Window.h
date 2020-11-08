@@ -1,8 +1,8 @@
 #pragma once
 #include <SDL.h>
-#include "ALL.h"
-#include "Util.h"
-#include "Gui.h"
+#include "../ALL.h"
+#include "../Util/Util.h"
+#include "../Gui/Gui.h"
 
 class Window
 {
