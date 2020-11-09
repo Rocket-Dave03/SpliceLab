@@ -40,6 +40,9 @@
     <ClCompile Include="Code\Windows\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Util\ResouseLoader\ResourseLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\All.h" />
@@ -50,11 +53,12 @@
     <ClInclude Include="Code\Util\ArrayList.h" />
     <ClInclude Include="Code\Util\Util.h" />
     <ClInclude Include="Code\Windows\Window.h" />
+    <ClInclude Include="Code\Util\ResouseLoader\ResourseLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\Image.png" />
+    <Image Include="Resources\Icon.ico" />
   </ItemGroup>
 </Project>

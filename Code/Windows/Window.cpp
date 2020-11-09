@@ -25,7 +25,7 @@ Window::Window(const char* name, int x, int y)
 	}
 	Window::makeCurrent();
 
-	printf("%p\n", this->icon);
+	//printf("%p\n", this->icon);
 	
 }
 Window::Window(const char* name) : Window::Window(name,SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED)
@@ -89,5 +89,9 @@ void Window::drawGUI()
 
 	SDL_GL_SwapWindow(handle);
 }
+//void Window::setProgramIcon(const char* resourseName)
+//{
+//
+//}
 
 

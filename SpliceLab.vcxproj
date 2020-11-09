@@ -143,6 +143,7 @@ copy /Y "$(SolutionDir)glew32.dll" "$(SolutionDir)$(Platform)\$(Configuration)\g
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\packages\glew.1.9.0.1\build\native\include\GL;$(SolutionDir)\packages\sdl2.2.0.5\build\native\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <SupportJustMyCode>true</SupportJustMyCode>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -159,6 +160,9 @@ copy /Y "$(SolutionDir)glew32.dll" "$(SolutionDir)$(Platform)\$(Configuration)\g
 copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Release\dynamic\glew.dll" "$(SolutionDir)$(Platform)\$(Configuration)\glew.dll"</Command>
       <Message>Move Dlls to working directory</Message>
     </PreBuildEvent>
+    <Xdcmake>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </Xdcmake>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Code\Gui\Buttons\GuiButton.cpp" />
@@ -166,6 +170,7 @@ copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Re
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\Util\Util.cpp" />
     <ClCompile Include="Code\Windows\Window.cpp" />
+    <ClCompile Include="Code\Util\ResouseLoader\ResourseLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\All.h" />
@@ -176,12 +181,13 @@ copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Re
     <ClInclude Include="Code\Util\stb_image.h" />
     <ClInclude Include="Code\Util\Util.h" />
     <ClInclude Include="Code\Windows\Window.h" />
+    <ClInclude Include="Code\Util\ResouseLoader\ResourseLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\Image.png" />
+    <Image Include="Resources\Icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
