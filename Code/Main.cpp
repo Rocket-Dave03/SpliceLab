@@ -9,6 +9,7 @@ const int SCREEN_HEIGHT = 1080 / 2;
 
 
 ArrayList<Window*>* windows;
+ArrayList<long*>* longs;
 
 void quit(int);
 int exitCode = 0;
@@ -23,19 +24,25 @@ int main(int argc, char* args[])
         exit(EXIT_FAILURE);
     }
     
+
     windows = new ArrayList<Window*>();
-
-
-
+    longs = new ArrayList<long*>();
     //The window we'll be rendering to
     windows->append(new Window("Spilce Lab"));
     
 
-
-
     running = true;
     while(running)
     {
+        for (int i = 0; i < windows->size(); i++)
+        {
+            Window* win = windows->get(i);
+            if (win != nullptr)
+            {
+                win->drawGUI();
+            }
+        }
+
         SDL_Event event;
         while (SDL_PollEvent(&event) > 0)
         {
@@ -50,6 +57,11 @@ int main(int argc, char* args[])
                 }
                 quit(EXIT_SUCCESS);
                 break; 
+            case SDL_KEYDOWN:
+                if (event.key.type == SDL_KEYDOWN)
+                {
+                    longs->append(new long[100]);
+                }
             
             case SDL_WINDOWEVENT:
                 switch (event.window.event)
@@ -71,16 +83,7 @@ int main(int argc, char* args[])
                 }
             }
         }
-        for (int i = 0; i < windows->size(); i++)
-        {
-            Window* win = windows->get(i);
-            if(win != nullptr)
-            {
-                win->drawGUI();
-            }
-        }
     }
-    
     
 
     printf("Closing\n");

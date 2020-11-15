@@ -15,8 +15,7 @@ public:
 	int size();
 	T get(int);
 	void set(int, T);
-	void deleteAll();
-	void deleteElement(int);
+	void deleteElement(long);
 };
 
 
@@ -71,19 +70,31 @@ void ArrayList<T>::set(int index, T value)
 {
 	list[index] = value;
 }
+
+
 template <class T>
-void ArrayList<T>::deleteAll()
+void ArrayList<T>::deleteElement(long index)
 {
-	if ( std::is_pointer<T>::value == true)
+	if (index >= 0 && index >= length)
 	{
-		for (int i = 0; i < length;i++)
-		{
-			delete list[i];
-		}
+		printf( "ArrayList index out of bounds: %i, %i\n", index, length );
+		return;
 	}
-}
-template <class T>
-void ArrayList<T>::deleteElement(int index)
-{
+
+
 	delete list[index];
+	list[index] = nullptr;
+	
+	T* tmp = new T[length];
+	memcpy(tmp,list, length * sizeof(T));
+	delete list;
+	
+
+	list = new T[length - 1];
+	if (index >= 1)
+	{
+		memcpy(list, tmp, (index) * sizeof(T));
+	}
+	memcpy(list+index, tmp + (index+ 1), (length-(index+1)) * sizeof(T));
+	length--;
 }
