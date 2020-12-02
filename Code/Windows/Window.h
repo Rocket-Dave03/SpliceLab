@@ -1,5 +1,5 @@
 #pragma once
-#include <SDL.h>
+#include "../SDL.h"
 #include "../ALL.h"
 #include "../Util/Util.h"
 #include "../Gui/Gui.h"
@@ -8,8 +8,8 @@ class Window
 {
 protected:
     ArrayList<GuiControl*>* guiControls = new ArrayList<GuiControl*>();
-//private:
-//    static SDL_Surface* icon;
+private:
+    static SDL_Surface* icon;
 public:
     
 

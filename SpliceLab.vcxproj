@@ -47,7 +47,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
+    <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
@@ -94,6 +94,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreLinkEvent>
+      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)Data" "$(ProjectDir)x64\$(Configuration)Data" "/MIR"</Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -110,6 +113,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreLinkEvent>
+      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)Data" "$(ProjectDir)x64\$(Configuration)Data" "/MIR"</Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -132,10 +138,13 @@
 copy /Y "$(SolutionDir)glew32.dll" "$(SolutionDir)$(Platform)\$(Configuration)\glew32.dll"</Command>
       <Message>Move Dlls to working directory</Message>
     </PreBuildEvent>
+    <PreLinkEvent>
+      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)Data" "$(ProjectDir)x64\$(Configuration)Data" "/MIR"</Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
@@ -144,6 +153,11 @@ copy /Y "$(SolutionDir)glew32.dll" "$(SolutionDir)$(Platform)\$(Configuration)\g
       <AdditionalIncludeDirectories>$(SolutionDir)\packages\glew.1.9.0.1\build\native\include\GL;$(SolutionDir)\packages\sdl2.2.0.5\build\native\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <SupportJustMyCode>true</SupportJustMyCode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -154,6 +168,7 @@ copy /Y "$(SolutionDir)glew32.dll" "$(SolutionDir)$(Platform)\$(Configuration)\g
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;openGL32.lib;glew.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>
       </EntryPointSymbol>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PreBuildEvent>
       <Command>copy /Y "$(SolutionDir)packages\sdl2.redist.2.0.5\build\native\bin\x64\dynamic\SDL2.dll" "$(SolutionDir)$(Platform)\$(Configuration)\SDL2.dll"
@@ -163,17 +178,21 @@ copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Re
     <Xdcmake>
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Xdcmake>
+    <PreLinkEvent>
+      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)Data" "$(ProjectDir)x64\$(Configuration)Data" "/MIR"</Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Code\Gui\Buttons\GuiButton.cpp" />
     <ClCompile Include="Code\Gui\GuiControl.cpp" />
     <ClCompile Include="Code\Main.cpp" />
+    <ClCompile Include="Code\Util\MeshLoader\MeshLoader.cpp" />
     <ClCompile Include="Code\Util\Util.cpp" />
     <ClCompile Include="Code\Windows\Window.cpp" />
-    <ClCompile Include="Code\Util\ResouseLoader\ResourseLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\All.h" />
+    <ClInclude Include="Code\SDL.h" />
     <ClInclude Include="Code\Util\ArrayList.h" />
     <ClInclude Include="Code\Gui\Gui.h" />
     <ClInclude Include="Code\Gui\Buttons\GuiButton.h" />
@@ -181,13 +200,10 @@ copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Re
     <ClInclude Include="Code\Util\stb_image.h" />
     <ClInclude Include="Code\Util\Util.h" />
     <ClInclude Include="Code\Windows\Window.h" />
-    <ClInclude Include="Code\Util\ResouseLoader\ResourseLoader.h" />
+    <ClInclude Include="Code\Util\MeshLoader\MeshLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Resources\Icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

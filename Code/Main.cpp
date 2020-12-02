@@ -1,6 +1,8 @@
 #include "ALL.h"
 #include "Windows/Window.h"
-#include <SDL.h>
+#include "../Code/SDL.h"
+#include "Util/MeshLoader/MeshLoader.h"
+
 #include <gl\glew.h>
 #include <SDL_opengl.h>
  
@@ -8,15 +10,22 @@ const int SCREEN_WIDTH = 1920 / 2;
 const int SCREEN_HEIGHT = 1080 / 2;
 
 
+
+
+
 ArrayList<Window*>* windows;
-ArrayList<long*>* longs;
 
 void quit(int);
+void handleMouseEvent(SDL_Event);
 int exitCode = 0;
 bool running;
 
+
+
+#pragma warning( disable : 4100 )
 int main(int argc, char* args[])
 {
+
     printf("Starting SpliceLab\n");
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) < 0)
     {
@@ -24,16 +33,21 @@ int main(int argc, char* args[])
         exit(EXIT_FAILURE);
     }
     
-
+    // Create List to hold window pointers
     windows = new ArrayList<Window*>();
-    longs = new ArrayList<long*>();
-    //The window we'll be rendering to
+    // Create Window with a name and pointer to list
     windows->append(new Window("Spilce Lab"));
     
 
+
+    MeshLoader::Mesh* mesh;
+    mesh = new MeshLoader::Mesh("Data/Meshes/Gui/Buttons/button_rouded.obj");
+
+    // Main loop
     running = true;
     while(running)
     {
+        // Draw Window Contents
         for (int i = 0; i < windows->size(); i++)
         {
             Window* win = windows->get(i);
@@ -43,6 +57,7 @@ int main(int argc, char* args[])
             }
         }
 
+        // Handle Window Events
         SDL_Event event;
         while (SDL_PollEvent(&event) > 0)
         {
@@ -57,11 +72,17 @@ int main(int argc, char* args[])
                 }
                 quit(EXIT_SUCCESS);
                 break; 
-            case SDL_KEYDOWN:
-                if (event.key.type == SDL_KEYDOWN)
-                {
-                    longs->append(new long[100]);
-                }
+            case SDL_MOUSEMOTION:
+                handleMouseEvent(event);
+                break;
+
+            case SDL_MOUSEBUTTONDOWN:
+                handleMouseEvent(event);
+                break;
+
+            case SDL_MOUSEBUTTONUP:
+                handleMouseEvent(event);
+                break;
             
             case SDL_WINDOWEVENT:
                 switch (event.window.event)
@@ -80,7 +101,9 @@ int main(int argc, char* args[])
                             }
                         }
                     }
+                    break;
                 }
+                break;
             }
         }
     }
@@ -91,8 +114,16 @@ int main(int argc, char* args[])
     exit(exitCode);
 }
 
+
+
 void quit(int code) 
 {
     exitCode = code;
     running = false;
+}
+void handleMouseEvent(SDL_Event event)
+{
+    if (event.type == SDL_QUIT) {
+        return;
+    }
 }

@@ -89,9 +89,10 @@ void Window::drawGUI()
 
 	SDL_GL_SwapWindow(handle);
 }
-//void Window::setProgramIcon(const char* resourseName)
-//{
-//
-//}
+void Window::setProgramIcon(const char*)
+{
+
+}
+
 
 

@@ -40,7 +40,7 @@
     <ClCompile Include="Code\Windows\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Util\ResouseLoader\ResourseLoader.cpp">
+    <ClCompile Include="Code\Util\MeshLoader\MeshLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,12 +53,10 @@
     <ClInclude Include="Code\Util\ArrayList.h" />
     <ClInclude Include="Code\Util\Util.h" />
     <ClInclude Include="Code\Windows\Window.h" />
-    <ClInclude Include="Code\Util\ResouseLoader\ResourseLoader.h" />
+    <ClInclude Include="Code\SDL.h" />
+    <ClInclude Include="Code\Util\MeshLoader\MeshLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Resources\Icon.ico" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,9 @@
 #pragma once
 
+
+
+
+
 template <class T>
 class ArrayList
 {
@@ -36,6 +40,10 @@ ArrayList<T>::~ArrayList()
 	list = nullptr;
 }
 
+
+
+#pragma warning( push )
+#pragma warning( disable : 26451 )
 
 template <class T>
 void ArrayList<T>::append(T elem)
@@ -98,3 +106,6 @@ void ArrayList<T>::deleteElement(long index)
 	memcpy(list+index, tmp + (index+ 1), (length-(index+1)) * sizeof(T));
 	length--;
 }
+
+
+#pragma warning(pop)
