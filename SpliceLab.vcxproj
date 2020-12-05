@@ -79,9 +79,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -89,13 +93,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreLinkEvent>
-      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)Data" "$(ProjectDir)x64\$(Configuration)Data" "/MIR"</Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -106,6 +113,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,6 +133,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\C++ libraries\glew-2.1.0\include;C:\C++ libraries\glfw-3.3.2.bin.WIN64\include\GLFW;C:\C++ libraries\sdl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,12 +145,12 @@
       </EntryPointSymbol>
     </Link>
     <PreBuildEvent>
-      <Command>copy /Y "$(SolutionDir)SDL2.dll" "$(SolutionDir)$(Platform)\$(Configuration)\SDL2.dll"
-copy /Y "$(SolutionDir)glew32.dll" "$(SolutionDir)$(Platform)\$(Configuration)\glew32.dll"</Command>
-      <Message>Move Dlls to working directory</Message>
+      <Message>Move Files</Message>
+      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)\" $(Platform) $(Configuration)</Command>
     </PreBuildEvent>
     <PreLinkEvent>
-      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)Data" "$(ProjectDir)x64\$(Configuration)Data" "/MIR"</Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -150,7 +161,7 @@ copy /Y "$(SolutionDir)glew32.dll" "$(SolutionDir)$(Platform)\$(Configuration)\g
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\packages\glew.1.9.0.1\build\native\include\GL;$(SolutionDir)\packages\sdl2.2.0.5\build\native\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)packages\glew.1.9.0.1\build\native\include\GL;$(ProjectDir)packages\sdl2.2.0.5\build\native\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <SupportJustMyCode>true</SupportJustMyCode>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -158,6 +169,7 @@ copy /Y "$(SolutionDir)glew32.dll" "$(SolutionDir)$(Platform)\$(Configuration)\g
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>None</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalUsingDirectories>$(ProjectDir);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -171,15 +183,15 @@ copy /Y "$(SolutionDir)glew32.dll" "$(SolutionDir)$(Platform)\$(Configuration)\g
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PreBuildEvent>
-      <Command>copy /Y "$(SolutionDir)packages\sdl2.redist.2.0.5\build\native\bin\x64\dynamic\SDL2.dll" "$(SolutionDir)$(Platform)\$(Configuration)\SDL2.dll"
-copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Release\dynamic\glew.dll" "$(SolutionDir)$(Platform)\$(Configuration)\glew.dll"</Command>
-      <Message>Move Dlls to working directory</Message>
+      <Message>Move Files</Message>
+      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)\" $(Platform) $(Configuration)</Command>
     </PreBuildEvent>
     <Xdcmake>
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Xdcmake>
     <PreLinkEvent>
-      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)Data" "$(ProjectDir)x64\$(Configuration)Data" "/MIR"</Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -192,6 +204,7 @@ copy /Y "$(SolutionDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Re
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\All.h" />
+    <ClInclude Include="Code\IO.h" />
     <ClInclude Include="Code\SDL.h" />
     <ClInclude Include="Code\Util\ArrayList.h" />
     <ClInclude Include="Code\Gui\Gui.h" />

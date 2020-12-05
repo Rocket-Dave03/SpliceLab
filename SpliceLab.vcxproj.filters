@@ -55,6 +55,7 @@
     <ClInclude Include="Code\Windows\Window.h" />
     <ClInclude Include="Code\SDL.h" />
     <ClInclude Include="Code\Util\MeshLoader\MeshLoader.h" />
+    <ClInclude Include="Code\IO.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
