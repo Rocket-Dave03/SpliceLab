@@ -1,10 +1,12 @@
+#include <gl\glew.h>
+#include "SDL.h"
+#include <SDL_opengl.h>
+
 #include "ALL.h"
 #include "Windows/Window.h"
-#include "../Code/SDL.h"
 #include "Util/MeshLoader/MeshLoader.h"
 
-#include <gl\glew.h>
-#include <SDL_opengl.h>
+
  
 const int SCREEN_WIDTH = 1920 / 2;
 const int SCREEN_HEIGHT = 1080 / 2;

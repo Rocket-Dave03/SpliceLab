@@ -1,16 +1,16 @@
-#include "GuiButton.h"
+//#include "GuiButton.h"
 
 
 
-GuiButton::GuiButton()
-{
-}
-
-GuiButton::~GuiButton()
-{
-}
-
-void GuiButton::draw()
-{
-	printf("Yeet");
-}
+//GuiButton::GuiButton()
+//{
+//}
+//
+//GuiButton::~GuiButton()
+//{
+//}
+//
+//void GuiButton::draw()
+//{
+//	printf("Yeet");
+//}

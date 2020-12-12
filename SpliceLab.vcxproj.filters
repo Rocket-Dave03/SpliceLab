@@ -28,10 +28,13 @@
     <ClCompile Include="Code\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Gui\Buttons\GuiButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Gui\GuiControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Gui\Buttons\GuiButton.cpp">
+    <ClCompile Include="Code\Util\MeshLoader\MeshLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\Util\Util.cpp">
@@ -40,24 +43,20 @@
     <ClCompile Include="Code\Windows\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Util\MeshLoader\MeshLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Code\All.h" />
+    <ClInclude Include="Code\Gui\Buttons\GuiButton.h" />
     <ClInclude Include="Code\Gui\Gui.h" />
     <ClInclude Include="Code\Gui\GuiControl.h" />
-    <ClInclude Include="Code\Gui\Buttons\GuiButton.h" />
+    <ClInclude Include="Code\Util\Arrays\ArrayList.h" />
+    <ClInclude Include="Code\Util\Arrays\List.h" />
+    <ClInclude Include="Code\Util\MeshLoader\MeshLoader.h" />
+    <ClInclude Include="Code\Util\Arrays.h" />
     <ClInclude Include="Code\Util\stb_image.h" />
-    <ClInclude Include="Code\Util\ArrayList.h" />
     <ClInclude Include="Code\Util\Util.h" />
     <ClInclude Include="Code\Windows\Window.h" />
-    <ClInclude Include="Code\SDL.h" />
-    <ClInclude Include="Code\Util\MeshLoader\MeshLoader.h" />
+    <ClInclude Include="Code\All.h" />
     <ClInclude Include="Code\IO.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ClInclude Include="Code\SDL.h" />
   </ItemGroup>
 </Project>

@@ -1,40 +1,89 @@
 #include "MeshLoader.h"
-#include "../../All.h"
-#include "../../IO.h"
 
 
-// Load Obj file as Mesh
-MeshLoader::Mesh::Mesh(const char* filePath)
+typedef char byte;
+List<byte>* MeshLoader::loadFile(const char* filePath)
 {
+	// Open File
 	std::ifstream file;
 	file.open(filePath, std::ios::binary);
 
+	
+
 	if (file)
 	{
+		byte* buffer = nullptr;
 		// get length of file:
 		file.seekg(0, file.end);
-		long long length = file.tellg() + (long long)1;
+		long long length = file.tellg();
 		file.seekg(0, file.beg);
 
-		char* buffer = new char[length];
+		// Allocate buffer
+		buffer = new byte[length+1];
 
-		printf("Reading %lld characters... \n",length);
-		// read data as a block:
+		printf("Reading %lld characters... \n", length);
+		// read data to buffer:
 		file.read(buffer, length);
 		// add null terminator
-		buffer[length -1] = 0;
+		buffer[length - 1] = 0;
 
-		printf("%s\n",buffer);
+		printf("%s\n", buffer);
 		printf("Read Done\n");
+
+		List<byte>* list = new List<byte>(buffer, length);
+		delete[] buffer;
+		file.close();
+		return list;
+
 	}
-	
-	
-	
+	else
+	{
+		printf("Failed to load mesh file %s\n", filePath);
+		file.close();
+		return nullptr;
+	}
 
-
-	file.close();
 }
 
-MeshLoader::Mesh::~Mesh()
+ArrayList<List<byte>*>* MeshLoader::splitAtByte(List<byte>* buffer, byte val)
 {
+	ArrayList<List<byte>*>* out = new ArrayList<List<byte>*>();
+	for (int i = 0; i < buffer->length;i++)
+	{
+		if ( (*buffer)[i] == val )
+		{
+			/* TODO: Make this actualy work/ Thias currently dose nothing */
+			out->append(buffer->split(i));
+		}
+	}
+	return out;
+}
+
+
+
+
+
+
+
+// Mesh Class
+using namespace MeshLoader;
+
+Mesh::Mesh(const char* filePath)
+{
+	// Load file
+	rawFile = loadFile(filePath);
+
+	if (rawFile != nullptr)
+	{
+		// Parse File
+		ArrayList<List<byte>*>* lines = MeshLoader::splitAtByte(rawFile, 10);
+		lines->get(0);
+
+	}
+}
+
+
+Mesh::~Mesh()
+{
+	delete rawFile;
 }

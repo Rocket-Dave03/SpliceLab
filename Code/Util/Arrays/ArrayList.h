@@ -85,25 +85,25 @@ void ArrayList<T>::deleteElement(long index)
 {
 	if (index >= 0 && index >= length)
 	{
-		printf( "ArrayList index out of bounds: %i, %i\n", index, length );
+		printf("ArrayList index out of bounds: %i, %i\n", index, length);
 		return;
 	}
 
 
 	delete list[index];
 	list[index] = nullptr;
-	
+
 	T* tmp = new T[length];
-	memcpy(tmp,list, length * sizeof(T));
+	memcpy(tmp, list, length * sizeof(T));
 	delete list;
-	
+
 
 	list = new T[length - 1];
 	if (index >= 1)
 	{
 		memcpy(list, tmp, (index) * sizeof(T));
 	}
-	memcpy(list+index, tmp + (index+ 1), (length-(index+1)) * sizeof(T));
+	memcpy(list + index, tmp + (index + 1), (length - (index + 1)) * sizeof(T));
 	length--;
 }
 

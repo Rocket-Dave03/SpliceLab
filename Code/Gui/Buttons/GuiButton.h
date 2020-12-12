@@ -3,11 +3,11 @@
 #include "../../All.h"
 
 
-class GuiButton : public GuiControl
-{
-public:
-	GuiButton();
-	~GuiButton();
-
-	void draw();
-};
+//class GuiButton: public GuiControl
+//{
+//public:
+//	GuiButton();
+//	~GuiButton();
+//
+//	void draw();
+//};
