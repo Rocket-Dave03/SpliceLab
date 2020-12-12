@@ -77,7 +77,7 @@ Mesh::Mesh(const char* filePath)
 	{
 		// Parse File
 		ArrayList<List<byte>*>* lines = MeshLoader::splitAtByte(rawFile, 10);
-		lines->get(0);
+		printf("%s\n", lines->get(0)->getRaw());
 
 	}
 }

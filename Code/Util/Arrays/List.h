@@ -14,6 +14,7 @@ public:
 	~List();
 
 	List<T>* split(long long);
+	T* getRaw();
 
 	T& operator[](int i)
 	{
@@ -74,4 +75,13 @@ List<T>* List<T>::split(long long index)
 
 
 	return list;
+}
+
+template <class T>
+T* List::getRaw()
+{
+
+	T* tmp = new T[length];
+	memcpy(tmp, __cpp_lib_incomplete_container_elements, sizeof(T) * length);
+	return tmp;
 }
