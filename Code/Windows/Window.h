@@ -7,7 +7,7 @@
 class Window
 {
 protected:
-    ArrayList<GuiControl*>* guiControls = new ArrayList<GuiControl*>();
+    ArrayList<GuiControl*> guiControls = *(new ArrayList<GuiControl*>());
 private:
     static SDL_Surface* icon;
 public:

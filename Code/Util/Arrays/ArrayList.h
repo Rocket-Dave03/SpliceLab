@@ -9,16 +9,24 @@ class ArrayList
 {
 private:
 	T* list;
-	long length;
+	long long length;
 
 public:
 	ArrayList<T>();
 	~ArrayList<T>();
 
+	T& operator[](int i)
+	{
+		if (i >= length)
+		{
+			printf("Array index out of bounds\nAtempted to access [%d] but length is %lld", i, length);
+			return list[0];
+		}
+		return list[i];
+	}
+
 	void append(T);
-	int size();
-	T get(int);
-	void set(int, T);
+	long long size();
 	void deleteElement(long);
 };
 
@@ -64,28 +72,17 @@ void ArrayList<T>::append(T elem)
 	length++;
 }
 template <class T>
-int ArrayList<T>::size()
+long long ArrayList<T>::size()
 {
 	return length;
 }
-template <class T>
-T ArrayList<T>::get(int index)
-{
-	return list[index];
-}
-template<class T>
-void ArrayList<T>::set(int index, T value)
-{
-	list[index] = value;
-}
-
 
 template <class T>
 void ArrayList<T>::deleteElement(long index)
 {
 	if (index >= 0 && index >= length)
 	{
-		printf("ArrayList index out of bounds: %i, %i\n", index, length);
+		printf("ArrayList index out of bounds: %i, %lli\n", index, length);
 		return;
 	}
 

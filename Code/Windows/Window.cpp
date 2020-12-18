@@ -81,9 +81,9 @@ void Window::drawGUI()
 	glClearColor( c, c, c, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	for (int i = 0 ; i < this->guiControls->size(); i++)
+	for (int i = 0 ; i < this->guiControls.size(); i++)
 	{
-		GuiControl* g = this->guiControls->get(i);
+		GuiControl* g = this->guiControls[i];
 		g->draw();
 	}
 
