@@ -1,4 +1,4 @@
-#include <gl\glew.h>
+#include <GL/glew.h>
 #include "SDL.h"
 #include <SDL_opengl.h>
 
@@ -15,7 +15,7 @@ const int SCREEN_HEIGHT = 1080 / 2;
 
 
 
-ArrayList<Window*>* windows;
+ArrayList<Window*> windows;
 
 void quit(int);
 void handleMouseEvent(SDL_Event);
@@ -36,9 +36,9 @@ int main(int argc, char* args[])
     }
     
     // Create List to hold window pointers
-    windows = new ArrayList<Window*>();
+    windows = *(new ArrayList<Window*>());
     // Create Window with a name and pointer to list
-    windows->append(new Window("Spilce Lab"));
+    windows.append(new Window("Spilce Lab"));
     
 
 
@@ -50,9 +50,9 @@ int main(int argc, char* args[])
     while(running)
     {
         // Draw Window Contents
-        for (int i = 0; i < windows->size(); i++)
+        for (int i = 0; i < windows.size(); i++)
         {
-            Window* win = windows->get(i);
+            Window* win = windows[i];
             if (win != nullptr)
             {
                 win->drawGUI();
@@ -67,10 +67,10 @@ int main(int argc, char* args[])
             {
             
             case SDL_QUIT:
-                for (int i = 0; i < windows->size(); i++)
+                for (int i = 0; i < windows.size(); i++)
                 {
-                    windows->deleteElement(i);
-                    windows->set(i, nullptr);
+                    windows.deleteElement(i);
+                    windows[i] = nullptr;
                 }
                 quit(EXIT_SUCCESS);
                 break; 
@@ -90,16 +90,16 @@ int main(int argc, char* args[])
                 switch (event.window.event)
                 {
                 case SDL_WINDOWEVENT_CLOSE:
-                    for (int i = 0; i < windows->size(); i++)
+                    for (int i = 0; i < windows.size(); i++)
                     {
 
-                        Window* win = windows->get(i);
+                        Window* win = windows[i];
                         if (win != nullptr)
                         {
                             if (event.window.windowID == SDL_GetWindowID(win->handle))
                             {
-                                windows->deleteElement(i);
-                                windows->set(i, nullptr);
+                                windows.deleteElement(i);
+                                windows[i] = nullptr;
                             }
                         }
                     }

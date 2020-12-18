@@ -5,8 +5,12 @@ class List
 {
 private:
 	T* contents = nullptr;
+	long long size = 0;
+
 public:
-	long long length = 0;
+	
+	long long length();
+	
 	
 
 	List(long long);
@@ -18,9 +22,9 @@ public:
 
 	T& operator[](int i)
 	{
-		if (i >= length)
+		if (i >= size)
 		{
-			printf("Array index out of bounds\nAtempted to access [%d] but length is %lld", i, length);
+			printf("Array index out of bounds\nAtempted to access [%d] but length is %lld", i, size);
 			return contents[0];
 		}
 		return contents[i];
@@ -28,22 +32,26 @@ public:
 };
 
 
-
+template <class T>
+long long List<T>::length()
+{
+	return size;
+}
 
 template<class T>
-List<T>::List(long long size)
+List<T>::List(long long s)
 {
 	contents = new T[size];
-	length = size;
+	size = s;
 }
 
 
 template <class T>
-List<T>::List(T* data, long long size)
+List<T>::List(T* data, long long s)
 {
-	contents = new T[size];
-	memcpy(contents, data, sizeof(T) * size);
-	length = size;
+	contents = new T[s];
+	memcpy(contents, data, sizeof(T) * s);
+	size = s;
 }
 
 template<class T>
@@ -59,7 +67,7 @@ List<T>* List<T>::split(long long index)
 {
 
 	long long blength = index + 1;
-	long long alength = length - (index + 1);
+	long long alength = size - (index + 1);
 
 	T* before = new T[blength];
 	T* after  = new T[alength];
@@ -77,11 +85,11 @@ List<T>* List<T>::split(long long index)
 	return list;
 }
 
-template <class T>
-T* List::getRaw()
+template<class T>
+T* List<T>::getRaw()
 {
-
-	T* tmp = new T[length];
-	memcpy(tmp, __cpp_lib_incomplete_container_elements, sizeof(T) * length);
-	return tmp;
+	return contents;
 }
+
+
+

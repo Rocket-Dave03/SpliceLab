@@ -48,11 +48,11 @@ List<byte>* MeshLoader::loadFile(const char* filePath)
 ArrayList<List<byte>*>* MeshLoader::splitAtByte(List<byte>* buffer, byte val)
 {
 	ArrayList<List<byte>*>* out = new ArrayList<List<byte>*>();
-	for (int i = 0; i < buffer->length;i++)
+	for (int i = 0; i < buffer->length();i++)
 	{
 		if ( (*buffer)[i] == val )
 		{
-			/* TODO: Make this actualy work/ Thias currently dose nothing */
+			/* TODO: Make this actualy work. This currently dose nothing */
 			out->append(buffer->split(i));
 		}
 	}
@@ -75,9 +75,10 @@ Mesh::Mesh(const char* filePath)
 
 	if (rawFile != nullptr)
 	{
-		// Parse File
-		ArrayList<List<byte>*>* lines = MeshLoader::splitAtByte(rawFile, 10);
-		printf("%s\n", lines->get(0)->getRaw());
+		// Split file by newlines
+		ArrayList<List<byte>*> rawlines = *(MeshLoader::splitAtByte(rawFile, 10));
+		
+		List<std::string*> lines = *(new List<std::string*>(rawlines.size()));
 
 	}
 }
