@@ -19,7 +19,7 @@ ArrayList<Window*> windows;
 
 void quit(int);
 void handleMouseEvent(SDL_Event);
-int exitCode = 0;
+int  exitCode = 0;
 bool running;
 
 

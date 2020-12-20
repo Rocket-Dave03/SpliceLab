@@ -74,19 +74,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
-    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+    <PreLinkEventUseInBuild>true</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
-    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PreLinkEventUseInBuild>true</PreLinkEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -124,7 +130,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreLinkEvent>
-      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)Data" "$(ProjectDir)x64\$(Configuration)Data" "/MIR"</Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -158,15 +165,16 @@
     </Link>
     <PreBuildEvent>
       <Message>Move Files</Message>
-      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)\" $(Platform) $(Configuration)</Command>
+      <Command>"$(ProjectDir)copy_Files.bat" robocopy "$(ProjectDir)Data" "$(ProjectDir)$(Platform)\$(Configuration)\Data"  "/MIR" "/IS" "/IT" "/IM"
+
+</Command>
     </PreBuildEvent>
     <PreLinkEvent>
-      <Command>
-      </Command>
+      <Command>"$(ProjectDir)copy_dll.bat" "$(ProjectDir)" $(Platform) $(Configuration)</Command>
     </PreLinkEvent>
     <PostBuildEvent>
-      <Command>copy /Y "$(ProjectDir)lib\SDL2.dll" "$(ProjectDir)$(Platform)\$(Configuration)\SDL2.dll"
-copy /Y "$(ProjectDir)lib\glew-2.1.0\bin\Release\x64\glew32.dll" "$(ProjectDir)$(Platform)\$(Configuration)\glew32.dll"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -201,18 +209,19 @@ copy /Y "$(ProjectDir)lib\glew-2.1.0\bin\Release\x64\glew32.dll" "$(ProjectDir)$
     </Link>
     <PreBuildEvent>
       <Message>Move Files</Message>
-      <Command>"$(ProjectDir)copy_Files.bat" "$(ProjectDir)\" $(Platform) $(Configuration)</Command>
+      <Command>"$(ProjectDir)copy_Files.bat" robocopy "$(ProjectDir)Data" "$(ProjectDir)$(Platform)\$(Configuration)\Data"  "/MIR" "/IS" "/IT" "/IM"
+
+</Command>
     </PreBuildEvent>
     <Xdcmake>
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Xdcmake>
     <PreLinkEvent>
-      <Command>
-      </Command>
+      <Command>"$(ProjectDir)copy_dll.bat" "$(ProjectDir)" $(Platform) $(Configuration)</Command>
     </PreLinkEvent>
     <PostBuildEvent>
-      <Command>copy /Y "$(ProjectDir)packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\$(Configuration)\dynamic\glew.dll" "$(ProjectDir)$(Platform)\$(Configuration)\glew.dll"
-copy /Y "$(ProjectDir)packages\sdl2.redist.2.0.5\build\native\bin\x64\dynamic\SDL2.dll" "$(ProjectDir)$(Platform)\$(Configuration)\SDL2.dll"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

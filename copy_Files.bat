@@ -1,2 +1,3 @@
-robocopy %1Data %1%2\\%3\Data "/MIR" "/IS" "/IT" "/IM"
+%1 %2 %3 %4 %5 %6 %7
+
 EXIT 0
