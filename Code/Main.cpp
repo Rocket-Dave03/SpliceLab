@@ -69,8 +69,9 @@ int main(int argc, char* args[])
             case SDL_QUIT:
                 for (int i = 0; i < windows.size(); i++)
                 {
-                    windows.deleteElement(i);
+                    delete windows[i];
                     windows[i] = nullptr;
+                    windows.deleteElement(i);
                 }
                 quit(EXIT_SUCCESS);
                 break; 
@@ -98,8 +99,10 @@ int main(int argc, char* args[])
                         {
                             if (event.window.windowID == SDL_GetWindowID(win->handle))
                             {
-                                windows.deleteElement(i);
+                                delete windows[i];
                                 windows[i] = nullptr;
+                                windows.deleteElement(i);
+                                
                             }
                         }
                     }
