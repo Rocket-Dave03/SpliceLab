@@ -251,9 +251,6 @@
     <ClInclude Include="Code\Util\Util.h" />
     <ClInclude Include="Code\Windows\Window.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="Data\Meshes\Gui\Buttons\Text.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
 </Project>

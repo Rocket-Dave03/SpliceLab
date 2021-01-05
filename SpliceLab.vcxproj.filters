@@ -67,7 +67,4 @@
     <ClInclude Include="Code\Util\Mesh\MeshLoader\MeshLoader.h" />
     <ClInclude Include="Code\Util\Mesh\MeshParser\MeshParser.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="Data\Meshes\Gui\Buttons\Text.txt" />
-  </ItemGroup>
 </Project>
