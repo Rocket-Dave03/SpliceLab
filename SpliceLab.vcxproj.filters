@@ -34,13 +34,19 @@
     <ClCompile Include="Code\Gui\GuiControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Util\MeshLoader\MeshLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Util\Util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\Windows\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Util\Mesh\MeshLoader\MeshLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Util\Mesh\MeshParser\MeshParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Util\Mesh\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,7 +56,6 @@
     <ClInclude Include="Code\Gui\GuiControl.h" />
     <ClInclude Include="Code\Util\Arrays\ArrayList.h" />
     <ClInclude Include="Code\Util\Arrays\List.h" />
-    <ClInclude Include="Code\Util\MeshLoader\MeshLoader.h" />
     <ClInclude Include="Code\Util\Arrays.h" />
     <ClInclude Include="Code\Util\stb_image.h" />
     <ClInclude Include="Code\Util\Util.h" />
@@ -58,5 +63,11 @@
     <ClInclude Include="Code\All.h" />
     <ClInclude Include="Code\IO.h" />
     <ClInclude Include="Code\SDL.h" />
+    <ClInclude Include="Code\Util\Mesh\Mesh.h" />
+    <ClInclude Include="Code\Util\Mesh\MeshLoader\MeshLoader.h" />
+    <ClInclude Include="Code\Util\Mesh\MeshParser\MeshParser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Data\Meshes\Gui\Buttons\Text.txt" />
   </ItemGroup>
 </Project>

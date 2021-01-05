@@ -228,7 +228,9 @@
     <ClCompile Include="Code\Gui\Buttons\GuiButton.cpp" />
     <ClCompile Include="Code\Gui\GuiControl.cpp" />
     <ClCompile Include="Code\Main.cpp" />
-    <ClCompile Include="Code\Util\MeshLoader\MeshLoader.cpp" />
+    <ClCompile Include="Code\Util\Mesh\Mesh.cpp" />
+    <ClCompile Include="Code\Util\Mesh\MeshLoader\MeshLoader.cpp" />
+    <ClCompile Include="Code\Util\Mesh\MeshParser\MeshParser.cpp" />
     <ClCompile Include="Code\Util\Util.cpp" />
     <ClCompile Include="Code\Windows\Window.cpp" />
   </ItemGroup>
@@ -242,10 +244,15 @@
     <ClInclude Include="Code\Util\Arrays.h" />
     <ClInclude Include="Code\Util\Arrays\ArrayList.h" />
     <ClInclude Include="Code\Util\Arrays\List.h" />
-    <ClInclude Include="Code\Util\MeshLoader\MeshLoader.h" />
+    <ClInclude Include="Code\Util\Mesh\Mesh.h" />
+    <ClInclude Include="Code\Util\Mesh\MeshLoader\MeshLoader.h" />
+    <ClInclude Include="Code\Util\Mesh\MeshParser\MeshParser.h" />
     <ClInclude Include="Code\Util\stb_image.h" />
     <ClInclude Include="Code\Util\Util.h" />
     <ClInclude Include="Code\Windows\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Data\Meshes\Gui\Buttons\Text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

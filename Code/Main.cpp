@@ -4,7 +4,7 @@
 
 #include "ALL.h"
 #include "Windows/Window.h"
-#include "Util/MeshLoader/MeshLoader.h"
+#include "Util/Mesh/Mesh.h"
 
 
  
@@ -42,8 +42,8 @@ int main(int argc, char* args[])
     
 
 
-    MeshLoader::Mesh* mesh;
-    mesh = new MeshLoader::Mesh("Data/Meshes/Gui/Buttons/button_rouded.obj");
+    Mesh* mesh;
+    mesh = new Mesh("Data/Meshes/Gui/Buttons/button_rouded.obj");
 
     // Main loop
     running = true;
